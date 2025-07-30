@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin'})">
+    Gigya test Login page
+</body>
+<script>
+    
+var __gigyaConf = {
+    onGigyaServiceReady: function () { 
+        gigya.accounts.addEventHandlers({
+            onLogin: function(r) {
+                // User is logged in
+            },
+            onLogout: function(r) {
+                // User is logged out
+            }
+        });
+        gigya.accounts.session.verify({callback:function(response) {
+                if(response.errorCode == 0) {
+                        gigya.accounts.showScreenSet({screenSet:'Default-ProfileUpdate'});
+                } else {
+                        gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin'});
+                }
+        }});
+	}
+};
+</script>
+<script src="https://cdns.us1.gigya.com/js/gigya.js?apikey=4_gvm8psMiVEVWU7XjHd7bbw"></script>
+</html>
