@@ -6,6 +6,7 @@
     <title>Parth Tripathi</title>
 </head>
 <body>
+    <div id="mainContent" style="display: none;"></div>
     <h1>Hi! Welcome to parthtripathi.com</h1>
     <h2>If you need any help, ask your questions to my assistant below.</h2>
     <p>It can help you with following questions:
@@ -30,6 +31,8 @@
 
     <button onclick="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin'})">Click to Login</button>
     <button onclick="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin', startScreen:'gigya-register-screen'})">Click to Register</button>
+    <h1>Welcome to My Site!</h1>
+    </div>
 </body>
 
 <script>
@@ -56,9 +59,11 @@ var __gigyaConf = {
         });
         gigya.accounts.session.verify({callback:function(response) {
                 if(response.errorCode == 0) {
-                        gigya.accounts.showScreenSet({screenSet:'Default-ProfileUpdate'});
+                    document.getElementById("mainContent").style.display = "block";
+                    gigya.accounts.showScreenSet({screenSet:'Default-ProfileUpdate'});
                 } else {
-                        alert("Please Login to use this webpage");
+                    alert("Please Login to use this webpage");
+                    gigya.accounts.showScreenSet({screenSet: 'Default-RegistrationLogin'});
                 }
         }});
 	}
