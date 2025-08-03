@@ -47,16 +47,18 @@ var __gigyaConf = {
         gigya.accounts.addEventHandlers({
             onLogin: function(r) {
                 // User is logged in
+                alert("User is logged in");
             },
             onLogout: function(r) {
                 // User is logged out
+                alert("User is logged out");
             }
         });
         gigya.accounts.session.verify({callback:function(response) {
                 if(response.errorCode == 0) {
                         gigya.accounts.showScreenSet({screenSet:'Default-ProfileUpdate'});
                 } else {
-                        gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin'});
+                        alert("Please Login to use this webpage");
                 }
         }});
 	}
