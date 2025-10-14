@@ -4,10 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parth Tripathi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="mainContent" style="display: none;"></div>
-    <h1>Hi! Welcome to parthtripathi.com</h1>
+<body>    
+<!-- Navbar    -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: blue;">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="#">PARTH/TRIPATHI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Navbar end -->
+    <h2>Welcome to My Site!</h2>
     <h2>If you need any help, ask your questions to my assistant below.</h2>
     <p>It can help you with following questions:
         <ol>
@@ -29,13 +71,13 @@
         up the knowledge base so that it can help you with anything related to our services.
     </p>
 
-    <button onclick="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin'})">Click to Login</button>
-    <button onclick="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin', startScreen:'gigya-register-screen'})">Click to Register</button>
-    <button onclick="checkLoginStatus()">Verify Session</button>
-    <button onclick="gigya.accounts.logout()">Logout</button>
-    <h1>Welcome to My Site!</h1>
+    <button type="button" class="btn btn-primary" onclick="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin'})">Click to Login</button>
+    <button type="button" class="btn btn-primary" onclick="gigya.accounts.showScreenSet({screenSet:'Default-RegistrationLogin', startScreen:'gigya-register-screen'})">Click to Register</button>
+    <button type="button" class="btn btn-primary" onclick="checkLoginStatus()">Verify Session</button>
+    <button type="button" class="btn btn-primary" onclick="gigya.accounts.logout()">Logout</button>
+    
     </div>
-</body>
+
 
 <script>
   !function(c,n,r,t){if(!c[r]){var i,d,p=[];d="PROD"!==t&&t?"STAGING"===t?"https://cdn.gladly.qa/gladly/chat-sdk/widget.js":t:"https://cdn.gladly.com/chat-sdk/widget.js",c[r]={init:function(){i=arguments;var e={then:function(t){return p.push({type:"t",next:t}),e},catch:function(t){return p.push({type:"c",next:t}),e}};return e}},c.__onHelpAppHostReady__=function(t){if(delete c.__onHelpAppHostReady__,(c[r]=t).loaderCdn=d,i)for(var e=t.init.apply(t,i),n=0;n<p.length;n++){var a=p[n];e="t"===a.type?e.then(a.next):e.catch(a.next)}},function(){try{var t=n.getElementsByTagName("script")[0],e=n.createElement("script");e.async=!0,e.src=d+"?q="+(new Date).getTime(),t.parentNode.insertBefore(e,t)}catch(t){}}()}}
@@ -63,7 +105,7 @@ var __gigyaConf = {
                 if(response.errorCode == 0) {
                     document.getElementById("mainContent").style.display = "block";
                     gigya.accounts.showScreenSet({screenSet:'Default-ProfileUpdate'});
-                } else {
+                } else {    
                     alert("Please Login to use this webpage");
                     gigya.accounts.showScreenSet({screenSet: 'Default-RegistrationLogin'});
                 }
@@ -85,4 +127,6 @@ function checkLoginStatus() {
     });
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
 </html>
